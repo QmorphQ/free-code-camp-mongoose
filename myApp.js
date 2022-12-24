@@ -4,7 +4,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-console.log(process.env.MONGO_URI);
+
 let Person;
 
 // =====================================
@@ -19,10 +19,10 @@ Person = new mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   let person = new Person({name: "Bill", age: 20, favoriteFoods: ['cheese', "milk chocolate"]});
-  person.save((err, data) => {
-    
+  person.save(function(err, data) {
+    if(err)return console.log(err);
+    done(null, data);
   })
-  done(null /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
