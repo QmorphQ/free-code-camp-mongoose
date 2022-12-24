@@ -16,7 +16,7 @@ let personSchema = new mongoose.Schema({
 
 Person = new mongoose.model("Person", personSchema);
 // =====================================
-const arrayOfPeople = [
+let arrayOfPeople = [
   { name: "Bill", age: 29, favoriteFoods: ["milk", "peach"] },
   { name: "Jack", age: 31, favoriteFoods: ["chocolate", "candy"] },
   { name: "Vincent", age: 35, favoriteFoods: ["meat", "coffee", "apples"] },
